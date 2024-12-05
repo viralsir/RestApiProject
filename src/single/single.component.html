@@ -1,0 +1,67 @@
+<p>single works!</p>
+<div class="row">
+
+  <div class="col-4">
+    <form #TopicFormRef="ngForm" (ngSubmit)="saveUser()">
+
+    <table class="table table-borderless">
+           <tr>
+              <th>Id:</th>
+              <td><input type="text" [(ngModel)]="topic.id" name="id" class="form-control"> </td>
+           </tr>
+          <tr>
+            <th>Name :</th>
+            <td><input type="text" [(ngModel)]="topic.name"  name="name" class="form-control"> </td>
+          </tr>
+          <tr>
+            <th>Descrption :</th>
+            <td><input type="text" [(ngModel)]="topic.description" name="description" class="form-control"> </td>
+          </tr>
+      <tr>
+        <td class="text-center" colspan="2">
+          <input type="submit" value="save" class="btn btn-primary m-2">
+          <input type="reset" value="clear" class="btn btn-outline-info" >
+        </td>
+      </tr>
+
+
+
+    </table>
+    </form>
+
+  </div>
+
+  <div class="col-8">
+
+    <h5>
+      <input type="button" class="btn btn-outline-primary" value="Get Data" (click)="getList()">
+    </h5>
+    <table class="table table-warning">
+
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Action</th>
+      </tr>
+      @for(topic of topiclist;track $index){
+
+        <tr>
+
+          <td>{{topic.id}}</td>
+          <td>{{topic.name}}</td>
+          <td>{{topic.description}}</td>
+          <td>
+            <input type="button" value="Update" class="btn btn-warning" (click)="updateTopic(topic)">
+          </td>
+
+        </tr>
+
+      }
+    </table>
+
+  </div>
+</div>
+
+
+
