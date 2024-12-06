@@ -1,0 +1,32 @@
+<h1> Topic List </h1>
+<div class="row">
+  <div class="col">
+
+    <table class="table table-bordered table-primary">
+      <thead>
+      <tr>
+         <th>
+            Id
+          </th>
+         <th>
+           Name
+         </th>
+        <th> Description</th>
+      </tr>
+      </thead>
+
+      <tbody>
+         @for(topic of topicservice.getAllTopics();track  $index){
+                  <tr>
+                    <td> {{topic.id}}</td>
+                    <td> {{topic.name}}</td>
+                    <td>{{topic.description}}</td>
+                  </tr>
+         }
+      </tbody>
+    </table>
+
+
+  </div>
+
+</div>
